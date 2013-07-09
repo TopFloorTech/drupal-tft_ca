@@ -1,5 +1,4 @@
 (function($){
-        console.log('w');
     // jQuery Namespaces:
     // jquery for menu page
     var $menu_page = function(sel){
@@ -18,8 +17,6 @@
         var $states = $('.field-name-field-content-state,.views-field-field-content-state');
         $states.each(function(){
             var $this = $(this);
-            console.log($this);
-
             $this.addClass(convert_to_slug($this.text()));
         });
     }
@@ -31,18 +28,10 @@
         $menu_items.find('.menu-overview-title-link').
             append('<a href="#" class="add-sibling">Add Content</a>').
             click(function(e){
-                console.log(e);
                 var tableDrag = $(e.currentTarget).parent().parent();
                 var diff = $add_item.position().top - tableDrag.position().top;
-
-                // get index
-                //var index = tableDrag.index();
-                console.log($add_item.position().top);
-                console.log(tableDrag.position().top);
-                console.log(diff);
                 var indentation = tableDrag.find('.indentation').length;
                 var dy = diff > 0 ? (diff * -1) + 30: (diff *-1);
-                console.log(dy);
                 $add_item.find('a').simulate( "drag", {
 		    dx: 0,
 		    dy: dy
