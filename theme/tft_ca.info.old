@@ -1,0 +1,24 @@
+name = TFT CA
+description = a subtheme of ember for content authoring
+core = 7.x
+base theme = ember
+
+; Stylesheets
+stylesheets[all][] = stylesheets/ca.css
+stylesheets[all][] = stylesheets/ca-dashboard.css
+stylesheets[all][] = stylesheets/ca-menutree.css
+stylesheets[all][] = stylesheets/ca-node-edit.css
+
+
+
+; Settings
+settings[shortcut_module_link] = 1
+
+; Regions
+regions[content] = Content
+regions[help] = Help
+regions[messages] = Messages
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[sidebar_first] = First sidebar
+regions_hidden[] = sidebar_first

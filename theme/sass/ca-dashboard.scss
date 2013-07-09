@@ -1,0 +1,66 @@
+@import "base";
+@import "compass/css3";
+
+%big-button{
+    padding:20px;
+    @include border-radius(2px);
+    background-color:$blue;
+    color:white;
+    font-size:27px;
+    font-family:'Source Sans Light';
+    &:before{
+        font-family:'FontAwesome';
+        content:"\f152";
+        margin-right:20px;
+    }
+}
+
+
+.page-admin-dashboard{
+    #content{
+        padding:30px!important;
+    }
+}
+
+
+.dashboard-region{
+    .block-shortcut{
+        border:0!important;
+        box-shadow:none!important;
+        margin:0!important;
+        h2{
+            display:none;
+        }
+        .content{
+            padding:0!important;
+        }
+        .content .menu{
+            padding-left:0;
+            margin:0!important;
+            //margin-right:5px;
+            li{
+                list-style:none;
+                font-size:20px;
+                margin-bottom:5px;
+                padding-right:0;
+                &:last-child{
+                    margin-bottom:0;
+                }
+                a{
+                    display:block;
+                    @extend %big-button;
+                    &[href='/admin/structure/menu/manage/main-menu']{
+                        background-color:desaturate(darken(purple,4%),70%);
+                        &:before{
+                            font-family:'FontAwesome';
+                            margin-right:20px;
+                            content:"\f0e8"
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
+}

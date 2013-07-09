@@ -1,0 +1,177 @@
+<?php
+
+/**
+ * @file tft_ca.module
+ * TODO: Enter file description here.
+ */
+
+
+/**
+ * Implements hook_menu_item_target_types_alter().
+ */
+function tft_ca_menu_item_target_types_alter(&$target_types, &$context) {
+
+}
+
+function tft_ca_init(){
+  // if run from drush, don't redirect
+  if(function_exists('drush_main')){
+    return;
+  }
+
+  global $user;
+  if(_tft_ca_is_author()){
+    require_once(drupal_get_path('module','tft_ca').'/tft_ca.settings.php');
+    // add font awesome
+    drupal_add_css('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', array('type' => 'external'));
+    // add theme css
+    foreach($tft_ca_theme_settings['css'] as $css_file){
+      $css_module_path = $tft_ca_theme_settings['css_prefix'].'/'.$css_file;
+      $css_full_path = drupal_get_path('module','tft_ca') .'/'.$css_module_path;
+      drupal_add_css($css_full_path);
+    }
+    // add theme js
+    foreach($tft_ca_theme_settings['js'] as $js_file){
+      $js_module_path = $tft_ca_theme_settings['js_prefix'].'/'.$js_file;
+      $js_full_path = drupal_get_path('module','tft_ca') .'/'.$js_module_path;
+      drupal_add_js($js_full_path);
+    }
+  }
+
+
+  // redirect any anonymous user to the user login page
+  if($user->uid == 0 && current_path() !== 'user'){
+    drupal_goto('user');
+  } elseif( _tft_ca_is_author() && current_path() == 'node'){
+    drupal_goto('admin/dashboard');
+  }
+
+}
+
+function _tft_ca_is_author($user = NULL){
+  if($user == NULL){
+    global $user;
+  }
+  return in_array('author', array_values($user->roles));
+}
+
+function tft_ca_form_alter(&$form, $form_state, $form_id) {
+  //dpm($form_id);
+  /* global $user; */
+
+  /* // only run this function for authors on the node edit form */
+  /* if( !_tft_ca_is_author($user) || !isset($form['#node_edit_form']) ){ */
+  /*   return; */
+  /* } */
+
+  /* drupal_add_css(drupal_get_path('module','tft_ca').'/tft_ca.css'); */
+  //$form['additional_settings']['#access'] = FALSE;
+
+}
+
+function tft_ca_form_menu_overview_form_alter(&$form, $form_state, $form_id){
+  /* TODO: add this in to the theme */
+  if( !_tft_ca_is_author() ){
+    return;
+  }
+
+  if($form['#menu']['menu_name'] == 'main-menu'){
+    drupal_set_title('Site Tree');
+  }
+  // remove node 'view' links
+  foreach (element_children($form) as $mlid) {
+    $el = &$form[$mlid];
+    if(isset($el['#item']['plid'])){
+      if(isset($el['title']['#markup'])){
+        $el['title']['#markup'] =  strip_tags($el['title']['#markup']);
+      }
+      $el['#item']['href'] = $el['#item']['href'] . '/edit';
+      _tft_ca_get_progress_from_menu($el);
+    }
+  }
+
+}
+
+function _tft_ca_get_progress_from_menu(&$el){
+  if($el['#item']['router_path'] == 'node/%'){
+    $nid = substr($el['#item']['link_path'],5);
+    $node = node_load($nid);
+    if($node->field_content_state){
+      $field = field_info_field('field_content_state');
+      $allowed_values = list_allowed_values($field);
+      $content_state_values = field_get_items('node',$node,'field_content_state');
+      //dpm($content_state);
+      $content_state = $allowed_values[$content_state_values[0]['value']];
+      $el['title']['#markup'] = $el['title']['#markup'].
+        '<em class="field-name-field-content-state">'.$content_state.'</em>';
+    }
+  }
+}
+
+function tft_ca_form_menu_item_delete_form_alter(&$form, &$form_state, $form_id) {
+  // if content author
+  // make sure they delete both content and menu link
+  // this ties the idea of menu and content together better
+  if(!_tft_ca_is_author()){
+    return;
+  }
+
+  $form['delete_node']['#default_value'] = TRUE;
+  $form['delete_node']['#access'] = FALSE;
+  if(isset($form['question']['#markup'])){
+    $question = $form['question']['#markup'];
+    $form['question']['#markup'] = str_replace('custom menu link','content',$question);
+  }
+}
+
+function tft_ca_node_submit($node,$form,&$form_state){
+  // automatically set menu link to be the same as node title
+  $node->menu['link_title'] = $node->title;
+}
+
+function tft_ca_user_login(&$edit,$account){
+  // direct author account to dashboard
+  if(_tft_ca_is_author($account)){
+    $edit['redirect'] = 'admin/dashboard';
+  }
+}
+
+function tft_ca_node_view($node,$view_mode){
+  // todo: update so this works with full view modes on views and other pages not node/%
+  if(_tft_ca_is_author() &&
+    $view_mode == 'full'
+  ){
+    drupal_goto('node/'.$node->nid.'/edit');
+  }
+
+}
+
+function tft_ca_block_info(){
+   $blocks['tft_ca_content_progress'] = array(
+		// info: The name of the block.
+		'info' => t('Content Progress'),
+	);
+return $blocks;
+}
+
+function tft_ca_block_view($delta = ''){
+  $block = array();
+  switch($delta){
+    case 'tft_ca_content_progress':
+      $block['subject'] = t('Content Progress');
+      $block['content'] = "hello";
+  }
+
+  return $block;
+}
+
+function _tft_ca_get_content_progress(){
+  //TODO: get all entity types that have progress field
+  //TODO: query all entities with progress field and get title and progress
+  //TODO: average all
+}
+
+
+/* function tft_ca_form_menu_overview_form_alter(&$form,&$form_state){ */
+/*   dpm($form); */
+/* } */

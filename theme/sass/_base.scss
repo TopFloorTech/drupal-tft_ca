@@ -1,0 +1,23 @@
+$blue:#2865B8;
+
+%delete-icon-link{
+    &:before{
+        position:relative;
+        top:-1px;
+        color:darken(red,10%);
+        font-family:'FontAwesome';
+        font-size:21px;
+        content:'\f014';
+    }
+}
+
+%edit-icon-link{
+    &:before{
+        position:relative;
+        top:1px;
+        color:$blue;
+        font-family:'FontAwesome';
+        font-size:21px;
+        content:'\f044';
+    }
+}

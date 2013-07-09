@@ -1,0 +1,90 @@
+/* line 4, ../sass/ca.scss */
+.tabledrag-toggle-weight {
+  display: none;
+}
+
+/* line 9, ../sass/ca.scss */
+.breadcrumb,
+.add-or-remove-shortcuts {
+  display: none !important;
+}
+
+/* line 13, ../sass/ca.scss */
+.tabs {
+  display: none;
+}
+
+/* line 19, ../sass/ca.scss */
+h1.page-title .dashboard {
+  position: relative;
+  top: -6px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  margin-left: 5px;
+  padding: 5px 10px;
+  background: #2865b8;
+  color: white;
+  font-weight: 600;
+  letter-spacing: -.4;
+  font-size: 14px;
+  line-height: 1;
+}
+/* line 32, ../sass/ca.scss */
+h1.page-title .dashboard:before {
+  font-family: "FontAwesome";
+  content: "\f015";
+  margin-right: 10px;
+}
+
+/* line 39, ../sass/ca.scss */
+h1.page-title .logout {
+  position: absolute;
+  right: 0;
+  top: -15px;
+  background: #010101;
+  display: inline-block;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 54, ../sass/ca.scss */
+.field-name-field-content-state,
+.views-field-field-content-state {
+  color: #2865b8;
+  font-style: italic;
+}
+/* line 57, ../sass/ca.scss */
+.field-name-field-content-state.not-started,
+.views-field-field-content-state.not-started {
+  color: red;
+}
+/* line 61, ../sass/ca.scss */
+.field-name-field-content-state.in-progress,
+.views-field-field-content-state.in-progress {
+  color: green;
+}
+/* line 64, ../sass/ca.scss */
+.field-name-field-content-state.complete,
+.views-field-field-content-state.complete {
+  color: black;
+}
+/* line 67, ../sass/ca.scss */
+.field-name-field-content-state.pending-approval,
+.views-field-field-content-state.pending-approval {
+  color: purple;
+}
+/* line 70, ../sass/ca.scss */
+.field-name-field-content-state.approved,
+.views-field-field-content-state.approved {
+  color: #2865b8;
+}

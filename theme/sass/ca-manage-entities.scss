@@ -1,0 +1,54 @@
+@import "base";
+
+.view-header{
+    .action-links{
+        a{
+            font-size:18px;
+            &:before{
+                content:"\f055";
+                font-family:'FontAwesome';
+                margin-right:10px;
+            }
+        }
+    }
+}
+
+.views-field-delete-node,
+.views-field-edit-node,
+.views-field-delete-link,
+.views-field-edit-link{
+    a{
+        display:inline;
+        color:transparent;
+    }
+}
+
+.views-field-delete-node a,
+.views-field-delete-link a{
+    position:absolute;
+    right:0;
+    margin-top:-9px;
+    @extend %delete-icon-link;
+    thead &{
+        display:none;
+    }
+    color:transparent!important;
+}
+
+.views-field-edit-node a,
+.views-field-edit-link a{
+    position:absolute;
+    right:40px;
+    margin-top:-9px;
+    thead &{
+        border:1px solid red;
+        display:none;
+    }
+    @extend %edit-icon-link;
+    color:transparent!important;
+}
+
+.view thead{
+    display:none;
+}
+

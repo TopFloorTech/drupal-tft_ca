@@ -1,0 +1,69 @@
+/* line 4, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li a {
+  padding: 20px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #2865b8;
+  color: white;
+  font-size: 27px;
+  font-family: 'Source Sans Light';
+}
+/* line 11, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li a:before {
+  font-family: 'FontAwesome';
+  content: "\f152";
+  margin-right: 20px;
+}
+
+/* line 20, ../sass/ca-dashboard.scss */
+.page-admin-dashboard #content {
+  padding: 30px !important;
+}
+
+/* line 27, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut {
+  border: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+/* line 31, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut h2 {
+  display: none;
+}
+/* line 34, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content {
+  padding: 0 !important;
+}
+/* line 37, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu {
+  padding-left: 0;
+  margin: 0 !important;
+}
+/* line 41, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li {
+  list-style: none;
+  font-size: 20px;
+  margin-bottom: 5px;
+  padding-right: 0;
+}
+/* line 46, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li:last-child {
+  margin-bottom: 0;
+}
+/* line 49, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li a {
+  display: block;
+}
+/* line 52, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li a[href='/admin/structure/menu/manage/main-menu'] {
+  background-color: #462646;
+}
+/* line 54, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li a[href='/admin/structure/menu/manage/main-menu']:before {
+  font-family: 'FontAwesome';
+  margin-right: 20px;
+  content: "\f0e8";
+}

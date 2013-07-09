@@ -1,0 +1,11 @@
+/* line 4, ../sass/ca-node-edit.scss */
+.page-node-add #edit-preview, .page-node-add #edit-delete,
+.page-node-edit #edit-preview,
+.page-node-edit #edit-delete {
+  display: none;
+}
+/* line 7, ../sass/ca-node-edit.scss */
+.page-node-add .vertical-tabs,
+.page-node-edit .vertical-tabs {
+  display: none;
+}

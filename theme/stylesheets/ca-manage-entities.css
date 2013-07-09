@@ -1,0 +1,75 @@
+/* line 4, ../sass/_base.scss */
+.views-field-delete-node a:before,
+.views-field-delete-link a:before {
+  position: relative;
+  top: -1px;
+  color: #cc0000;
+  font-family: 'FontAwesome';
+  font-size: 21px;
+  content: '\f014';
+}
+
+/* line 15, ../sass/_base.scss */
+.views-field-edit-node a:before,
+.views-field-edit-link a:before {
+  position: relative;
+  top: 1px;
+  color: #2865b8;
+  font-family: 'FontAwesome';
+  font-size: 21px;
+  content: '\f044';
+}
+
+/* line 5, ../sass/ca-manage-entities.scss */
+.view-header .action-links a {
+  font-size: 18px;
+}
+/* line 7, ../sass/ca-manage-entities.scss */
+.view-header .action-links a:before {
+  content: "\f055";
+  font-family: 'FontAwesome';
+  margin-right: 10px;
+}
+
+/* line 20, ../sass/ca-manage-entities.scss */
+.views-field-delete-node a,
+.views-field-edit-node a,
+.views-field-delete-link a,
+.views-field-edit-link a {
+  display: inline;
+  color: transparent;
+}
+
+/* line 27, ../sass/ca-manage-entities.scss */
+.views-field-delete-node a,
+.views-field-delete-link a {
+  position: absolute;
+  right: 0;
+  margin-top: -9px;
+  color: transparent !important;
+}
+/* line 32, ../sass/ca-manage-entities.scss */
+thead .views-field-delete-node a, thead
+.views-field-delete-link a {
+  display: none;
+}
+
+/* line 39, ../sass/ca-manage-entities.scss */
+.views-field-edit-node a,
+.views-field-edit-link a {
+  position: absolute;
+  right: 40px;
+  margin-top: -9px;
+  color: transparent !important;
+}
+/* line 43, ../sass/ca-manage-entities.scss */
+thead .views-field-edit-node a, thead
+.views-field-edit-link a {
+  border: 1px solid red;
+  display: none;
+}
+
+/* line 51, ../sass/ca-manage-entities.scss */
+.view thead {
+  display: none;
+}

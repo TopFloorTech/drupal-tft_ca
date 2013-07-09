@@ -1,0 +1,187 @@
+@import "base";
+@import "compass/css3";
+
+.tabledrag-toggle-weight-wrapper{
+    //display:none;
+}
+
+%submit{
+    background-image: linear-gradient(#4E9FEA 0%, #417ED2 100%);
+    border: 0 solid transparent;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: 'Source Sans',Lucida Sans Unicode,Lucida Grande,Segoe UI,sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    height: 2.2em;
+    margin-right: 0.5em;
+    padding: 0 17px;
+    text-align: center;
+}
+
+#menu-overview-form{
+    &:before{
+    }
+
+    #menu-overview{
+        .field-name-field-content-state{
+            float:right;
+        }
+        .menu-overview-title-link{
+        }
+
+        .warning{
+            display:none;
+        }
+        .menu-additem{
+            td{
+                padding:10px;
+            }
+
+            .form-item{
+                input,select{
+                    border:1px solid $blue;
+                    @include border-radius(3px);
+
+                }
+                label{
+                    display:none;
+                /* display:none; */
+                }
+            }
+        }
+        tbody{
+            border:0;
+            tr{
+                background-color:white!important;
+                td{
+                    background-color:white!important;
+                }
+                //border:0;
+                //border-bottom:1px dotted $blue;
+                &:hover{
+                    .tabledrag-handle{
+                        position:relative;
+                        z-index:100;
+                    }
+                    .add-sibling{
+                        display:inline-block;
+                        position:absolute;
+                    }
+                }
+                .add-sibling{
+                    /* width:20px; */
+                    /* height:20px; */
+                    //color:white;
+                    margin-left:15px;
+                    overflow:hidden;
+                    display:none;
+                    font-size:12px;
+                    line-height:2;
+                    &:before{
+                        line-height:1;
+                        position:relative;
+                        top:2px;
+                        font-family:'FontAwesome';
+                        content:'\f055';
+                        color:$blue;
+                        font-size:16px;
+                        margin-right:3px;
+                    }
+                }
+
+                &:first-child{
+                }
+                td{
+
+                }
+            }
+        }
+        tbody tr .menu-enabled{
+            display:none;
+        }
+        thead{
+            display:none;
+            >tr{
+                //1px dotted grey!important;
+                th{
+                }
+            }
+
+        }
+        thead .checkbox{
+            display:none;
+        }
+
+        .menu-operations {
+            .ctools-dropbutton{
+                background:none;
+                &:hover{
+                    background:none;
+                }
+            }
+            .ctools-content{
+                border:0;
+                position:relative;
+                top:-5px;
+                &:hover{
+                    background:none;
+                }
+                .delete,.edit{
+                    display:inline-block!important;
+                    height:23px;
+                    width:30px;
+                    margin:0 5px;
+                    padding:0!important;
+                    a{
+                        color:transparent;
+                        width:100%;
+                        height:100%;
+                        border:0;
+                    }
+                }
+                .delete a,.edit a{
+                    display:inline!important;
+                }
+                .delete a{
+                    &:before{
+                        position:relative;
+                        top:-1px;
+                        color:darken(red,10%);
+                        font-family:'FontAwesome';
+                        font-size:21px;
+                        content:'\f014';
+                    }
+
+                }
+                .edit a{
+                    &:before{
+                        position:relative;
+                        top:1px;
+                        color:$blue;
+                        font-family:'FontAwesome';
+                        font-size:21px;
+                        content:'\f044';
+                    }
+                }
+                li{
+                    display:none;
+                }
+            }
+        }
+
+
+
+        .menu-operations .ctools-link{
+            display:none!important;
+        }
+
+        .menu-overview-title-edit-trigger{
+            display:none;
+        }
+    }
+    #edit-actions-submit{
+        @extend %submit;
+    }
+}
