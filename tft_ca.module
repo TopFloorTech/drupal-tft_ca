@@ -71,6 +71,7 @@ function tft_ca_form_alter(&$form, $form_state, $form_id) {
 
 function tft_ca_form_menu_overview_form_alter(&$form, $form_state, $form_id){
   /* TODO: add this in to the theme */
+  dpm($form);
   if( !_tft_ca_is_author() ){
     return;
   }
@@ -96,7 +97,7 @@ function _tft_ca_get_progress_from_menu(&$el){
   if($el['#item']['router_path'] == 'node/%'){
     $nid = substr($el['#item']['link_path'],5);
     $node = node_load($nid);
-    if($node->field_content_state){
+    if(isset($node->field_content_state)){
       $field = field_info_field('field_content_state');
       $allowed_values = list_allowed_values($field);
       $content_state_values = field_get_items('node',$node,'field_content_state');

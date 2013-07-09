@@ -66,6 +66,19 @@
         // unbind the annoying menu ctools things in firefox
         $menu_page('#menu-overview-form .menu-operations *').unbind('');
 
+
+        jQuery('#edit-additem-target-content option').
+            filter('[value="dummy"]').
+            filter('[value="url"]').
+            filter('[value="existing"]')
+            .remove;
+
+        // remove additional complexity from menu additem
+        jQuery('#edit-additem-target-content option').
+            filter('[value="dummy"],[value="url"],[value="existing"]').
+            remove();
+
+
         // add state css
         set_state_value_to_class();
         add_menu_add_sibling_links();
