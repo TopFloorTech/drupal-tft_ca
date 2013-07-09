@@ -1,6 +1,5 @@
 name = TFT Content Authoring Enhancements
 description = TODO: Description of module
 dependencies[] = content_menu
-dependencies[] = ember
 package = Content Authoring
 core = 7.x
