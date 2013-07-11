@@ -89,7 +89,7 @@
 }
 /* line 104, ../sass/ca-menutree.scss */
 #menu-overview-form #menu-overview thead {
-  display: none;
+  display: none !important;
 }
 /* line 113, ../sass/ca-menutree.scss */
 #menu-overview-form #menu-overview thead .checkbox {

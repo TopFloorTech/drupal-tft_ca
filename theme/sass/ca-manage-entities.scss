@@ -4,10 +4,11 @@
     .action-links{
         a{
             font-size:18px;
+            margin-right:20px;
             &:before{
                 content:"\f055";
                 font-family:'FontAwesome';
-                margin-right:10px;
+                margin-right:5px;
             }
         }
     }
@@ -51,4 +52,3 @@
 .view thead{
     display:none;
 }
-

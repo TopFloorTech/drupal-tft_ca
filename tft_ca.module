@@ -41,7 +41,7 @@ function tft_ca_init(){
 
   // redirect any anonymous user to the user login page
   if($user->uid == 0 && current_path() !== 'user'){
-    drupal_goto('user');
+    //drupal_goto('user');
   } elseif( _tft_ca_is_author() && current_path() == 'node'){
     drupal_goto('admin/dashboard');
   }
@@ -56,6 +56,16 @@ function _tft_ca_is_author($user = NULL){
 }
 
 function tft_ca_form_alter(&$form, $form_state, $form_id) {
+  //if menu title is already different than title, because it was updated
+  // my an admin to be different, let the submit hook know, so that it doesn't
+  // update the menu title back to original
+  if(isset($form['#node_edit_form']) ){
+    $menu_title = $form['menu']['link']['link_title']['#default_value'];
+    $title = $form['title']['#default_value'];
+    if($menu_title !== $title){
+      $form['#diff_menu_title'] = true;
+    }
+  }
   //dpm($form_id);
   /* global $user; */
 
@@ -126,6 +136,9 @@ function tft_ca_form_menu_item_delete_form_alter(&$form, &$form_state, $form_id)
 }
 
 function tft_ca_node_submit($node,$form,&$form_state){
+  if(!_tft_ca_is_author() || isset($form['#diff_menu_title'])){
+    return;
+  }
   // automatically set menu link to be the same as node title
   $node->menu['link_title'] = $node->title;
 }

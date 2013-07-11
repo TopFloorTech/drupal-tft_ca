@@ -5,6 +5,15 @@
     display:none;
 }
 
+.region{
+    display:none;
+}
+#content{
+    .region{
+        display:block;
+    }
+}
+
 .breadcrumb,
 .add-or-remove-shortcuts{
     display:none!important;

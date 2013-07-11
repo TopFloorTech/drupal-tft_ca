@@ -23,15 +23,16 @@
 /* line 5, ../sass/ca-manage-entities.scss */
 .view-header .action-links a {
   font-size: 18px;
+  margin-right: 20px;
 }
-/* line 7, ../sass/ca-manage-entities.scss */
+/* line 8, ../sass/ca-manage-entities.scss */
 .view-header .action-links a:before {
   content: "\f055";
   font-family: 'FontAwesome';
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
-/* line 20, ../sass/ca-manage-entities.scss */
+/* line 21, ../sass/ca-manage-entities.scss */
 .views-field-delete-node a,
 .views-field-edit-node a,
 .views-field-delete-link a,
@@ -40,7 +41,7 @@
   color: transparent;
 }
 
-/* line 27, ../sass/ca-manage-entities.scss */
+/* line 28, ../sass/ca-manage-entities.scss */
 .views-field-delete-node a,
 .views-field-delete-link a {
   position: absolute;
@@ -48,13 +49,13 @@
   margin-top: -9px;
   color: transparent !important;
 }
-/* line 32, ../sass/ca-manage-entities.scss */
+/* line 33, ../sass/ca-manage-entities.scss */
 thead .views-field-delete-node a, thead
 .views-field-delete-link a {
   display: none;
 }
 
-/* line 39, ../sass/ca-manage-entities.scss */
+/* line 40, ../sass/ca-manage-entities.scss */
 .views-field-edit-node a,
 .views-field-edit-link a {
   position: absolute;
@@ -62,14 +63,14 @@ thead .views-field-delete-node a, thead
   margin-top: -9px;
   color: transparent !important;
 }
-/* line 43, ../sass/ca-manage-entities.scss */
+/* line 44, ../sass/ca-manage-entities.scss */
 thead .views-field-edit-node a, thead
 .views-field-edit-link a {
   border: 1px solid red;
   display: none;
 }
 
-/* line 51, ../sass/ca-manage-entities.scss */
+/* line 52, ../sass/ca-manage-entities.scss */
 .view thead {
   display: none;
 }
