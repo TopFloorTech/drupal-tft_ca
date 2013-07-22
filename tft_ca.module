@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 
 /**
  * @file tft_ca.module
@@ -81,7 +84,6 @@ function tft_ca_form_alter(&$form, $form_state, $form_id) {
 
 function tft_ca_form_menu_overview_form_alter(&$form, $form_state, $form_id){
   /* TODO: add this in to the theme */
-  dpm($form);
   if( !_tft_ca_is_author() ){
     return;
   }
