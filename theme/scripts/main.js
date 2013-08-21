@@ -28,6 +28,7 @@
         $menu_items.find('.menu-overview-title-link').
             append('<a href="#" class="add-sibling">Add Content</a>').
             click(function(e){
+                var scroll_pos = window.scrollY;
                 var tableDrag = $(e.currentTarget).parent().parent();
                 var diff = $add_item.position().top - tableDrag.position().top;
                 var indentation = tableDrag.find('.indentation').length;
@@ -36,6 +37,13 @@
 		    dx: 0,
 		    dy: dy
 		});
+                
+                //TODO:investigate futher, this doesn't seem necessary
+                // not sure why this is necessary
+                setTimeout(function(){
+                    window.scrollTo(0,scroll_pos);
+                },1);
+
             });
     }
 
@@ -49,8 +57,18 @@
             find('h1.page-title').
             append('<a href="/admin/dashboard" class="dashboard">Back To Dashboard</a>');
 
+        // add titles of links for descriptions
+        $('.page-admin-dashboard .block a').each(function(){
+            var $this = $(this);
+            if($this.attr('title')){
+            $this.append("<span>"+$this.attr('title')+"</span>");
+            }
+        });
+
         // add logout button
         $('h1.page-title').prepend('<a class="logout" href="/user/logout">Log Out</a>');
+        // add logout button
+        $('h1.page-title').prepend('<a class="account-settings" href="/user/me/edit">Account Settings</a>');
 
         // unbind the annoying menu ctools things in firefox
         $menu_page('#menu-overview-form .menu-operations *').unbind('');

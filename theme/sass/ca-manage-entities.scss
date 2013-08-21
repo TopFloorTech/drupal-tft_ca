@@ -21,13 +21,16 @@
     a{
         display:inline;
         color:transparent;
+        overflow:hidden;
+        display:block;
+        width:20px;
     }
 }
 
 .views-field-delete-node a,
 .views-field-delete-link a{
     position:absolute;
-    right:0;
+    right:30px;
     margin-top:-9px;
     @extend %delete-icon-link;
     thead &{
@@ -39,7 +42,7 @@
 .views-field-edit-node a,
 .views-field-edit-link a{
     position:absolute;
-    right:40px;
+    right:60px;
     margin-top:-9px;
     thead &{
         border:1px solid red;

@@ -49,10 +49,9 @@ h1.page-title .dashboard:before {
   margin-right: 10px;
 }
 
-/* line 48, ../sass/ca.scss */
-h1.page-title .logout {
+/* line 49, ../sass/ca.scss */
+h1.page-title .logout, h1.page-title .account-settings {
   position: absolute;
-  right: 0;
   top: -15px;
   background: #010101;
   display: inline-block;
@@ -66,34 +65,42 @@ h1.page-title .logout {
   -o-border-radius: 3px;
   border-radius: 3px;
 }
+/* line 61, ../sass/ca.scss */
+h1.page-title .account-settings {
+  right: 67px;
+}
+/* line 64, ../sass/ca.scss */
+h1.page-title .logout {
+  right: 0;
+}
 
-/* line 63, ../sass/ca.scss */
+/* line 70, ../sass/ca.scss */
 .field-name-field-content-state,
 .views-field-field-content-state {
   color: #2865b8;
   font-style: italic;
 }
-/* line 66, ../sass/ca.scss */
+/* line 73, ../sass/ca.scss */
 .field-name-field-content-state.not-started,
 .views-field-field-content-state.not-started {
   color: red;
 }
-/* line 70, ../sass/ca.scss */
+/* line 77, ../sass/ca.scss */
 .field-name-field-content-state.in-progress,
 .views-field-field-content-state.in-progress {
   color: green;
 }
-/* line 73, ../sass/ca.scss */
+/* line 80, ../sass/ca.scss */
 .field-name-field-content-state.complete,
 .views-field-field-content-state.complete {
   color: black;
 }
-/* line 76, ../sass/ca.scss */
+/* line 83, ../sass/ca.scss */
 .field-name-field-content-state.pending-approval,
 .views-field-field-content-state.pending-approval {
   color: purple;
 }
-/* line 79, ../sass/ca.scss */
+/* line 86, ../sass/ca.scss */
 .field-name-field-content-state.approved,
 .views-field-field-content-state.approved {
   color: #2865b8;

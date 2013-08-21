@@ -1,5 +1,5 @@
 /* line 4, ../sass/ca-dashboard.scss */
-.dashboard-region .block-shortcut .content .menu li a {
+.dashboard-region .block-shortcut .content .menu li a, .dashboard-region .block-menu .content .menu li a {
   padding: 20px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -12,58 +12,75 @@
   font-family: 'Source Sans Light';
 }
 /* line 11, ../sass/ca-dashboard.scss */
-.dashboard-region .block-shortcut .content .menu li a:before {
+.dashboard-region .block-shortcut .content .menu li a:before, .dashboard-region .block-menu .content .menu li a:before {
   font-family: 'FontAwesome';
   content: "\f152";
   margin-right: 20px;
+  display: inline-block;
+  width: 27px;
+  text-align: center;
 }
 
-/* line 20, ../sass/ca-dashboard.scss */
+/* line 23, ../sass/ca-dashboard.scss */
 .page-admin-dashboard #content {
   padding: 30px !important;
 }
 
-/* line 27, ../sass/ca-dashboard.scss */
-.dashboard-region .block-shortcut {
+/* line 30, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut, .dashboard-region .block-menu {
   border: 0 !important;
   box-shadow: none !important;
   margin: 0 !important;
 }
-/* line 31, ../sass/ca-dashboard.scss */
-.dashboard-region .block-shortcut h2 {
+/* line 34, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut h2, .dashboard-region .block-menu h2 {
   display: none;
 }
-/* line 34, ../sass/ca-dashboard.scss */
-.dashboard-region .block-shortcut .content {
+/* line 37, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content, .dashboard-region .block-menu .content {
   padding: 0 !important;
 }
-/* line 37, ../sass/ca-dashboard.scss */
-.dashboard-region .block-shortcut .content .menu {
+/* line 40, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu, .dashboard-region .block-menu .content .menu {
   padding-left: 0;
   margin: 0 !important;
 }
-/* line 41, ../sass/ca-dashboard.scss */
-.dashboard-region .block-shortcut .content .menu li {
+/* line 44, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li, .dashboard-region .block-menu .content .menu li {
   list-style: none;
   font-size: 20px;
   margin-bottom: 5px;
   padding-right: 0;
 }
-/* line 46, ../sass/ca-dashboard.scss */
-.dashboard-region .block-shortcut .content .menu li:last-child {
+/* line 49, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li:last-child, .dashboard-region .block-menu .content .menu li:last-child {
   margin-bottom: 0;
 }
-/* line 49, ../sass/ca-dashboard.scss */
-.dashboard-region .block-shortcut .content .menu li a {
+/* line 53, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li a, .dashboard-region .block-menu .content .menu li a {
   display: block;
 }
-/* line 52, ../sass/ca-dashboard.scss */
-.dashboard-region .block-shortcut .content .menu li a[href='/admin/structure/menu/manage/main-menu'] {
+/* line 56, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li a.entity, .dashboard-region .block-menu .content .menu li a.entity {
+  background-color: #39acac;
+}
+/* line 59, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li a[href='/admin/structure/menu/manage/main-menu'], .dashboard-region .block-menu .content .menu li a[href='/admin/structure/menu/manage/main-menu'] {
   background-color: #462646;
 }
-/* line 54, ../sass/ca-dashboard.scss */
-.dashboard-region .block-shortcut .content .menu li a[href='/admin/structure/menu/manage/main-menu']:before {
+/* line 61, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li a[href='/admin/structure/menu/manage/main-menu']:before, .dashboard-region .block-menu .content .menu li a[href='/admin/structure/menu/manage/main-menu']:before {
   font-family: 'FontAwesome';
   margin-right: 20px;
   content: "\f0e8";
+}
+/* line 68, ../sass/ca-dashboard.scss */
+.dashboard-region .block-shortcut .content .menu li a span, .dashboard-region .block-menu .content .menu li a span {
+  display: block;
+  font-size: 16px;
+  line-height: 1;
+  color: white;
+  padding-top: 10px;
+  text-align: left;
+  padding-left: 3em;
 }

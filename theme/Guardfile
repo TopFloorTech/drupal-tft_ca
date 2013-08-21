@@ -3,5 +3,4 @@
 
 guard 'livereload' do
   watch(%r{/.+\.(css)})
-  # Rails Assets Pipeline
 end

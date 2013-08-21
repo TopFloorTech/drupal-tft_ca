@@ -12,6 +12,9 @@
         font-family:'FontAwesome';
         content:"\f152";
         margin-right:20px;
+        display:inline-block;
+        width:27px;
+        text-align:center;
     }
 }
 
@@ -24,7 +27,7 @@
 
 
 .dashboard-region{
-    .block-shortcut{
+    .block-shortcut,.block-menu{
         border:0!important;
         box-shadow:none!important;
         margin:0!important;
@@ -46,9 +49,13 @@
                 &:last-child{
                     margin-bottom:0;
                 }
+                
                 a{
                     display:block;
                     @extend %big-button;
+                    &.entity{
+                        background-color:desaturate(darken(adjust-hue(red,180),5%),50%); 
+                    }
                     &[href='/admin/structure/menu/manage/main-menu']{
                         background-color:desaturate(darken(purple,4%),70%);
                         &:before{
@@ -57,6 +64,19 @@
                             content:"\f0e8"
                         }
 
+                    }
+                    span{
+                        //border-top:1px dotted transparentize(white,.7);
+                        //margin-top:10px;
+                        display:block;
+                        font-size:16px;
+                        //position:relative;
+                        //margin-bottom:-5px;
+                        line-height:1;
+                        color:white;
+                        padding-top:10px;
+                        text-align:left; 
+                        padding-left:3em;   
                     }
                 }
             }
