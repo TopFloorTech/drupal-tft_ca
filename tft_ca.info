@@ -2,5 +2,6 @@ name = TFT Content Authoring Enhancements
 description = TODO: Description of module
 dependencies[] = content_menu
 dependencies[] = dashboard
+dependencies[] = admin_entity_list
 package = Content Authoring
 core = 7.x

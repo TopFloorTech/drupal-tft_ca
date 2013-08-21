@@ -1,0 +1,41 @@
+<?php
+
+function tft_ca_install(){
+  // set the admin theme to ember
+  $available_themes = list_themes(true);
+  if(!empty($available_themes['ember'])){
+    variable_set('admin_theme','ember');
+  } 
+  // TODO: output message if theme is not available
+
+  // add author role and assign default permissions
+  $author_role = new stdClass();
+  $author_role->name = 'author';
+  $author_role->weight = 3;
+  user_role_save($author_role);
+
+
+  // give limited permission set to author
+  $permissions = array(
+    'access content',
+    'access dashboard',
+    'access draggableviews',
+    'access user profiles',
+    'administer menu',
+    'administer nodes',
+    'bypass node access',
+    'change own username',
+    'eck add entities',
+    'eck delete entities',
+    'eck edit entities',
+    'eck list entities',
+    'eck view entities',
+    'view own unpublished content',
+    'view the administration theme',
+  );
+  user_role_grant_permissions($author_role->rid, $permissions);
+}
+
+function tft_ca_uninstall(){
+  user_role_delete('author');
+}

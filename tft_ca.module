@@ -8,6 +8,11 @@ ini_set('display_errors', '1');
  * TODO: Enter file description here.
  */
 
+function tft_ca_menu(){
+}
+
+function tft_ca_flush_cache(){
+}
 
 /**
  * Implements hook_menu_item_target_types_alter().
@@ -17,6 +22,7 @@ function tft_ca_menu_item_target_types_alter(&$target_types, &$context) {
 }
 
 function tft_ca_init(){
+
   // if run from drush, don't redirect
   if(function_exists('drush_main')){
     return;
@@ -62,7 +68,7 @@ function tft_ca_form_alter(&$form, $form_state, $form_id) {
   //if menu title is already different than title, because it was updated
   // my an admin to be different, let the submit hook know, so that it doesn't
   // update the menu title back to original
-  if(isset($form['#node_edit_form']) ){
+  if(isset($form['#node_edit_form']) && isset($form['menu']) ){
     $menu_title = $form['menu']['link']['link_title']['#default_value'];
     $title = $form['title']['#default_value'];
     if($menu_title !== $title){
@@ -92,6 +98,13 @@ function tft_ca_form_menu_overview_form_alter(&$form, $form_state, $form_id){
     drupal_set_title('Site Tree');
   }
   // remove node 'view' links
+
+  // remove admin_entity_list managed nodes
+  $admin_entity_list_enabed = admin_entity_list_get_all_enabled();
+  foreach($admin_entity_list_enabed['node_bundles'] as $node_bundle){
+    unset($form['additem']['target_content']['#options']['node_'.$node_bundle]);
+  }
+
   foreach (element_children($form) as $mlid) {
     $el = &$form[$mlid];
     if(isset($el['#item']['plid'])){
@@ -128,14 +141,24 @@ function tft_ca_form_menu_item_delete_form_alter(&$form, &$form_state, $form_id)
   if(!_tft_ca_is_author()){
     return;
   }
-
   $form['delete_node']['#default_value'] = TRUE;
-  $form['delete_node']['#access'] = FALSE;
+  $form['delete_node']['#type'] = 'hidden';
   if(isset($form['question']['#markup'])){
     $question = $form['question']['#markup'];
     $form['question']['#markup'] = str_replace('custom menu link','content',$question);
   }
 }
+
+// make sure our form alter calls are called last
+function tft_ca_module_implements_alter(&$implementations, $hook){
+  if($hook == "form_alter"){
+    $group = $implementations['tft_ca'];
+    unset($implementations['tft_ca']);
+    $implementations['tft_ca'] = $group;
+  }
+}
+
+
 
 function tft_ca_node_submit($node,$form,&$form_state){
   if(!_tft_ca_is_author() || isset($form['#diff_menu_title'])){
